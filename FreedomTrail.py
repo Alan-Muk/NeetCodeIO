@@ -6,7 +6,7 @@ class Solution:
 				return 0
 			if (r, k) in cache:
 				return cache[(r, k)]
-b
+
 			res = float("inf")
 
 			for i, c in enumerate(ring):

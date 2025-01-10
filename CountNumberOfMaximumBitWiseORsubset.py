@@ -5,18 +5,15 @@ class Solution:
 		for n in nums:
 			max_or |= n
 
-		res = 0
+		
 		def dfs(i, cur_or):
-			nonlocal res, max_or
+			nonlocal  max_or
 			if i == len(nums):
-				res += 1 if cur_or == max_or else 0
-				return
+				return 1 if cur_or == max_or else 0
 			#skip i
-			dfs(i + 1, cur_or)
+			return (dfs(i + 1, cur_or) +
+			dfs(i + 1, cur_or | nums[i]))
 
-			#include
-			dfs(i + 1, cur_or | nums[i])
+		return dfs(0, 0)
 
-		dfs(0, 0)
-
-		return res
+		
